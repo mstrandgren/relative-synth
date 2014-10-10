@@ -21,12 +21,18 @@ window.Cerulean = ({piano, synth, keycodeToInterval, intervalToKeyName}) ->
 		piano.setLabels(getLabels())
 		synth.playNote(currentNote)
 
+	updateLabels = ->
+		piano.setCurrent(currentNote)
+		piano.setLabels(getLabels())
+
 	stop = (keycode) ->
 		synth.stopAll()
-		console.log('TBI')
 
-	play: play
-	stop: stop
+	return {
+		play
+		stop
+		updateLabels
+	}
 
 
 

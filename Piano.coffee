@@ -41,8 +41,6 @@ window.Piano = (container, octaves = 7, startAt = 37) ->
 
 		blacksContainer.lastChild.remove()
 
-
-
 	activate = (note) ->
 		keydiv = document.getElementById('piano' + note).classList.add('pressed')
 
@@ -64,8 +62,10 @@ window.Piano = (container, octaves = 7, startAt = 37) ->
 	init(container, octaves)
 	setCurrent(startAt)
 
-	activate: activate
-	deactivate: deactivate
-	getCurrent: -> currentNote
-	setCurrent: setCurrent
-	setLabels: setLabels
+	return {
+		activate
+		deactivate
+		getCurrent: -> currentNote
+		setCurrent
+		setLabels
+	}

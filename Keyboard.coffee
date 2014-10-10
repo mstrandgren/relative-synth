@@ -61,10 +61,13 @@ window.Keyboard = (container) ->
 		else
 			keydiv.classList.remove('pressed')
 
-	setLabels = (labels) ->
-		for row, ridx in container.childNodes
-			for key, kidx in row.childNodes
-				key.getElementsByClassName('label')[0].innerText = labels[ridx][kidx]
+	intervalToKeyNameMap = (layout) ->
+		map = {}
+		for row, ridx in keycodes
+			for key, kidx in row
+				map['' + layout[ridx][kidx]] = keynames[ridx][kidx]
+		map['0'] = 32
+		return map
 
 	keycodeToIntervalMap = (layout) ->
 		map = {}
@@ -80,18 +83,16 @@ window.Keyboard = (container) ->
 				map[keycodes[ridx][kidx]] = keynames[ridx][kidx]
 		return map
 
-	intervalToKeyNameMap = (layout) ->
-		map = {}
-		for row, ridx in keycodes
-			for key, kidx in row
-				map['' + layout[ridx][kidx]] = keynames[ridx][kidx]
-		map['0'] = 32
-		return map
+	setLabels = (labels) ->
+		for row, ridx in container.childNodes
+			for key, kidx in row.childNodes
+				key.getElementsByClassName('label')[0].innerText = labels[ridx][kidx]
 
-
-	activate: activate
-	deactivate: deactivate
-	setLabels: setLabels
-	keycodeToIntervalMap: keycodeToIntervalMap
-	keycodeToKeyNameMap: keycodeToKeyNameMap
-	intervalToKeyNameMap: intervalToKeyNameMap
+	return {
+		activate
+		deactivate
+		intervalToKeyNameMap
+		keycodeToIntervalMap
+		keycodeToKeyNameMap
+		setLabels
+	}
