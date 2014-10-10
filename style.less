@@ -1,0 +1,113 @@
+@keysize: 40px;
+
+body {
+	font-family: sans-serif;
+	font-size:13px;
+}
+
+#keyboard {
+	width: 14*@keysize;
+	margin:auto;
+	.row {
+		box-sizing: border-box;
+		height:@keysize;
+		display:flex;
+		>div {
+			position:relative;
+			border-radius: 3px;
+			border:1px solid #cde;
+			box-sizing:border-box;
+			margin:3px;
+			font-family: sans-serif;
+			text-align:center;
+			font-weight:100;
+			&.pressed {
+				background: #ddd;
+			}
+
+			.name {
+				position: absolute;
+				font-size:8px;
+				bottom: 3px;
+				left: 3px;
+				color: #ccc;
+			}
+
+			.label {
+				position:absolute;
+				top:50%;
+				left:50%;
+				transform: translate(-50%, -50%);
+				font-size:16px;
+				font-weight:100;
+				color:black;
+			}
+		}
+
+		&:first-child {
+			height:@keysize*.6;
+			>div {
+				font-size:@keysize*.6/2;
+				padding-top:@keysize*.6/10;
+			}
+		}
+	}
+}
+
+@pianoWidth: 300px;
+@pianoHeight: 150px;
+#piano {
+	font-size:8px;
+	position:relative;
+	height:@pianoHeight;
+	display:flex;
+	.white {
+		position: relative;
+		box-sizing: border-box;
+		flex-grow:1;
+		border:1px solid #ccc;
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+
+		&.current {
+			background: #ffa;
+		}
+	}
+
+	.label {
+		position:absolute;
+		bottom:0;
+		left:0;
+		right:0;
+		text-align:center;
+	}
+
+	.blacks-container {
+		position:absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+		display:flex;
+		justify-content: space-around;
+		z-index:1;
+		>.black {
+			position: relative;
+			box-sizing: border-box;
+			flex-grow:0;
+			background-color: black;
+			border-bottom-left-radius: 3px;
+			border-bottom-right-radius: 3px;
+			margin-bottom:@pianoHeight*.35;
+
+			&.current {
+				background: #ffa;
+				border:1px solid black;
+			}
+
+			.label {
+				color:white;
+			}
+		}
+	}
+}
