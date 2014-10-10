@@ -3,19 +3,23 @@
 body {
 	font-family: sans-serif;
 	font-size:13px;
+	margin:0;
+	padding:0;
 }
 
 #keyboard {
 	width: 14*@keysize;
-	margin:auto;
+	margin:10px auto;
+	background: #aaa;
+	border-radius: 3px;
 	.row {
 		box-sizing: border-box;
 		height:@keysize;
 		display:flex;
 		>div {
+			background: #333;
 			position:relative;
 			border-radius: 3px;
-			border:1px solid #cde;
 			box-sizing:border-box;
 			margin:3px;
 			font-family: sans-serif;
@@ -38,9 +42,9 @@ body {
 				top:50%;
 				left:50%;
 				transform: translate(-50%, -50%);
-				font-size:16px;
+				font-size:14px;
 				font-weight:100;
-				color:black;
+				color:#eee;
 			}
 		}
 
@@ -57,6 +61,7 @@ body {
 @pianoWidth: 300px;
 @pianoHeight: 150px;
 #piano {
+	margin: 10px;
 	font-size:8px;
 	position:relative;
 	height:@pianoHeight;
@@ -107,6 +112,31 @@ body {
 
 			.label {
 				color:white;
+			}
+		}
+	}
+}
+
+#explanation {
+	margin-top: 10px;
+	padding: 20px;
+	background: #333;
+	color: #eee;
+	article {
+		h2 {
+			font-size: 2em;
+			font-weight: normal;
+			padding:0;
+			margin:0 1em;
+		}
+		font-weight: 100;
+		max-width:600px;
+		margin:auto;
+		a {
+			color: #ccc;
+			text-decoration: underline;
+			&:visited {
+				color: #aaa;
 			}
 		}
 	}

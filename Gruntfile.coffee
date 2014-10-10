@@ -60,10 +60,10 @@ module.exports = (grunt) ->
 				options:
 					livereload: true
 				files: [
-					'src/**'
+					'**'
 				]
 				tasks: [
-					'default'
+					'build'
 				]
 
 	grunt.registerTask('build', ['clean', 'coffee', 'copy', 'less', 'uglify'])

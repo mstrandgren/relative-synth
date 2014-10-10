@@ -10,4 +10,6 @@ I tried to play, but it was incredibly hard. So I thought I'd make an app to mak
 I haven't gotten very far yet, and odds are I won't have time to, but you can play, and there's some visual aid to
 let you know where you are and how to get where you're going. At least if you're at all familiar with a piano.
 
+NOTE: It probably only works on Chrome on a Mac(Book*). Keyboards and keycodes differ, and I didn't have time to make it generic.
 
+Try it out at https://mstrandgren.github.io/relative-synth/
